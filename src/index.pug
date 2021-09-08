@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="theme-color" content="#6D2B2B")
+    title 暗号工具
+  body
+    noscript 需要启用 Javascript 才可以使用本工具哦~
+    #app 
+      header 暗号辅助工具
+
+      .function-switcher 
+        ul.tab-container
+          li.tab-item-li
+            .tab-item(data-label="resolve").activated
+              span.tab-label 解密
+          li.tab-item-li
+            .tab-item(data-label="maker")
+              span.tab-label 加密
+
+      .function-panel 
+        section.resolve.activated
+          .input-wrap 
+            input#hex-secret(type="text")
+          .hex-boxes-wrap
+            .secret-result-hex
+              span.heading 暗号全文
+              span.content
+            .secret-result-text
+              span.heading 对应文字
+              span.content 
+          .hexbox-container 
+
+          .operation-panel
+
+        section.maker
+          .input-wrap
+            input#original-text(type="text")
+          .hex-boxes-wrap
+            .secret-result-hex
+              span.heading 暗号全文
+              span.content
+          .hexbox-container

@@ -1,0 +1,26 @@
+{
+  "emeraldwalk.runonsave": {
+    // "commands": [
+    //   {
+    //     "match": ".scss",
+    //     "cmd": "sass ${file} ${fileDirname}/${fileBasenameNoExt}.css"
+    //   },
+    //   {
+    //     "match": ".sass",
+    //     "cmd": "sass ${file} ${fileDirname}/${fileBasenameNoExt}.css"
+    //   },
+    //   {
+    //     "match": ".js",
+    //     "cmd": "npx babel --no-babelrc ${file} --out-file ${fileDirname}/${fileBasenameNoExt}.min.js --plugins=babel-plugin-transform-remove-console --presets=@babel/preset-env,@babel/preset-react,babel-preset-minify --source-maps --no-comments",
+    //   },
+    //   {
+    //     "match": ".ts",
+    //     "cmd": "tsc ${file} ${fileDirname}/${fileBasenameNoExt}.js"
+    //   },
+    //   {
+    //     "match": ".pug",
+    //     "cmd": "pug ${file}"
+    //   }
+    // ]
+  }
+}

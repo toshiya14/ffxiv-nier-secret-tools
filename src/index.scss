@@ -1,0 +1,212 @@
+$theme-main-color: #A15858;
+$theme-light1-color: #BA7575;
+$theme-light2-color: #D49696;
+$theme-dark1-color: #874040;
+$theme-dark2-color: #6D2B2B;
+$page-background: lighten($theme-light2-color, 20);
+$monospace-fonts: Ubuntu Mono, Incosolata, Monaco, Consolas, monospace;
+
+input[type=text]{
+  background:none;
+  outline:none;
+  border:none;
+  border-bottom: 2px solid $theme-light2-color;
+  transition: all ease-in-out 0.2s;
+  padding:3px 0 3px 1rem;
+  font-size: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: $monospace-fonts;
+  &:focus{
+    border-bottom-color: $theme-dark2-color;
+  }
+}
+
+@mixin interactive-item{
+  cursor: pointer;
+  &:not(.activated):hover{
+    background: rgba($theme-light1-color, 0.4);
+  }
+  &.activated{
+    background: $theme-dark2-color;
+    color: #fff;
+    .hexbox-hex-string{
+      border-bottom-color: $theme-light2-color;
+    }
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+body{
+  background: $page-background;
+}
+header{
+  border-bottom: 5px solid $theme-dark2-color;
+  background: #FFFFFF;
+  height:2.5em;
+  line-height: 2.5em;
+  font-size: 0.6rem;
+}
+
+ul, li{
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+.function-switcher{
+  background: $theme-dark2-color;
+  .tab-container{
+    max-width: 16rem;
+  }
+}
+.function-panel{
+  flex: 1 1 auto;
+  &>*{
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    &.activated{
+      display:flex;
+    }
+  }
+}
+html, body, #app{
+  height: 100%;
+}
+#app{
+  display:flex;
+  flex-direction: column;
+}
+.hex-boxes-wrap{
+  font-size: 0.4rem;
+  color: #655;
+  line-height: 0.7rem;
+  &>*
+  {
+    &:after{
+      content: " ";
+      display: table;
+      clear:both;
+    }
+    &:nth-child(2n){
+    background-color: #DCC;
+    }
+  }
+  .heading{
+    float:left;
+    height:100%;
+    margin-right: 0.3rem;
+  }
+}
+
+.tab-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  .tab-item-li{
+    flex: 1 1 auto;
+  }
+}
+
+.tab-item{
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align:center;
+  cursor: pointer;
+  background-color: $page-background;
+  border-radius: 5px 5px 0 0;
+  &:not(.activated):hover{
+    background-color: $theme-light2-color;
+  }
+  &:not(.activated){
+    background-color: $theme-dark2-color;
+    color: #FFF;
+  }
+}
+
+.hexbox-container{
+  display: flex;
+  user-select: none;
+}
+
+.hexbox-single-text{
+  padding: 3px;
+  font-size: .7rem;
+  font-family: $monospace-fonts;
+  @include interactive-item;
+}
+
+.hexbox-hex-string{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid $theme-dark2-color;
+}
+
+.hexbox-byte{
+  display:flex;
+  flex-direction: row;
+  margin: 0 2px;
+}
+
+.hexbox-character{
+  display:flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.input-wrap {
+  margin-top: 0.3rem;
+  position: relative;
+  input[type=text]{
+    padding-left: 1.4rem;
+    font-size: 0.55rem;
+  }
+  &:before{
+    display: block;
+    position: absolute;
+    font-size: 0.47rem;
+    color: $theme-dark2-color;
+    padding:3px 0 3px 0;
+  }
+}
+section.resolve .input-wrap:before{
+  content: "暗号：";
+}
+section.maker .input-wrap:before{
+  content: "原文：";
+}
+
+section.resolve .operation-panel{
+  .candidate-item{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    box-sizing: padding-box;
+    height: 1.5rem;
+    width: 1.5rem;
+    @include interactive-item;
+    .candidate-text{
+      font-size: 0.6rem;
+    }
+    .candidate-code{
+      font-size: 0.3rem;
+      color: #888;
+    }
+  }
+}
